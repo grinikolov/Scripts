@@ -1,0 +1,103 @@
+date
+pwd
+echo Cluster is NGC 2121
+
+cp ../../datasets/u5dd0101r.c0f.fits .	 	
+cp ../../datasets/u5dd0102r.c0f.fits .	 	
+cp ../../datasets/u5dd0103r.c0f.fits .	 	
+cp ../../datasets/u5dd0106r.c0f.fits .	 	
+cp ../../datasets/u5dd0107r.c0f.fits .	 	
+cp ../../datasets/u5dd0108r.c0f.fits .	 	
+cp ../../datasets/u5dd0109r.c0f.fits .
+
+echo The Reference frame is u5dd0106r.c0f.fits
+	
+ls -l u5dd0101r.c*f.fits	 	
+ls -l u5dd0102r.c*f.fits	 	
+ls -l u5dd0103r.c*f.fits	 	
+ls -l u5dd0106r.c*f.fits	 	
+ls -l u5dd0107r.c*f.fits	 	
+ls -l u5dd0108r.c*f.fits	 	
+ls -l u5dd0109r.c*f.fits	 
+
+echo Masking with Data Quality file
+/home/grinikolov/bin/dol/hstphot1.1/mask u5dd0101r.c0f.fits u5dd0101r.c1f.fits		
+/home/grinikolov/bin/dol/hstphot1.1/mask u5dd0102r.c0f.fits u5dd0102r.c1f.fits	 
+/home/grinikolov/bin/dol/hstphot1.1/mask u5dd0103r.c0f.fits u5dd0103r.c1f.fits		
+/home/grinikolov/bin/dol/hstphot1.1/mask u5dd0106r.c0f.fits u5dd0106r.c1f.fits		
+/home/grinikolov/bin/dol/hstphot1.1/mask u5dd0107r.c0f.fits u5dd0107r.c1f.fits		
+/home/grinikolov/bin/dol/hstphot1.1/mask u5dd0108r.c0f.fits u5dd0108r.c1f.fits		
+/home/grinikolov/bin/dol/hstphot1.1/mask u5dd0109r.c0f.fits u5dd0109r.c1f.fits	
+
+echo Renaming the files
+mv u5dd0101r.c0f.fits  n2121F814W400e_u5dd0101r.fits		  	
+mv u5dd0102r.c0f.fits  n2121F814W400f_u5dd0102r.fits		  	
+mv u5dd0103r.c0f.fits  n2121F814W400g_u5dd0103r.fits		  	
+mv u5dd0106r.c0f.fits  n2121F555W400a_u5dd0106r.fits		  	
+mv u5dd0107r.c0f.fits  n2121F555W400b_u5dd0107r.fits		  	
+mv u5dd0108r.c0f.fits  n2121F555W400c_u5dd0108r.fits		  	
+mv u5dd0109r.c0f.fits  n2121F555W400d_u5dd0109r.fits
+
+echo Computing sky
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2121F814W400e_u5dd0101r 
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2121F814W400f_u5dd0102r 
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2121F814W400g_u5dd0103r 
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2121F555W400a_u5dd0106r 
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2121F555W400b_u5dd0107r 
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2121F555W400c_u5dd0108r 
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2121F555W400d_u5dd0109r 
+
+
+echo Removing Cosmic Rays
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2121F555W400a_u5dd0106r 0 0 0 0 0  n2121F555W400b_u5dd0107r 0 0 0 -11 -5 n2121F555W400c_u5dd0108r 0 0 0 -16 -16 n2121F555W400d_u5dd0109r  0 0 0 -5 -11 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2121F555W400a_u5dd0106r 0 0 0 0 0  n2121F555W400b_u5dd0107r 0 0 0 -11 -5 n2121F555W400c_u5dd0108r 0 0 0 -16 -16 n2121F555W400d_u5dd0109r  0 0 0 -5 -11 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2121F555W400a_u5dd0106r 0 0 0 0 0  n2121F555W400b_u5dd0107r 0 0 0 -11 -5 n2121F555W400c_u5dd0108r 0 0 0 -16 -16 n2121F555W400d_u5dd0109r  0 0 0 -5 -11 
+
+
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2121F814W400e_u5dd0101r 0 0 0 0 0  n2121F814W400f_u5dd0102r 0 0 0 -11 -5 n2121F814W400g_u5dd0103r 0 0 0 -16 -16   
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2121F814W400e_u5dd0101r 0 0 0 0 0  n2121F814W400f_u5dd0102r 0 0 0 -11 -5 n2121F814W400g_u5dd0103r 0 0 0 -16 -16   
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2121F814W400e_u5dd0101r 0 0 0 0 0  n2121F814W400f_u5dd0102r 0 0 0 -11 -5 n2121F814W400g_u5dd0103r 0 0 0 -16 -16   
+
+
+echo Removing Hotpixels
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F814W400e_u5dd0101r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F814W400f_u5dd0102r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F814W400g_u5dd0103r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F555W400a_u5dd0106r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F555W400b_u5dd0107r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F555W400c_u5dd0108r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F555W400d_u5dd0109r 
+
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F814W400e_u5dd0101r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F814W400f_u5dd0102r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F814W400g_u5dd0103r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F555W400a_u5dd0106r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F555W400b_u5dd0107r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F555W400c_u5dd0108r 
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels  n2121F555W400d_u5dd0109r 
+
+
+#echo Coadding registered images - no registered, all imaged in dithered pattern
+
+#==================================================================
+#             RUNNING  HSTphot  - Refit sky (option 512)  and
+#				- Artificial stars (option 64)  [col1=V, col2=I, Vmin=14, Vmax=27, V-Imin=-1, V-Imax=3, weights (1=900 stars/CMDbin) total=(27-13)/0.5 * (2.25-(-0.5))/0.25 = 308 bins]
+#                               - weight 0.5 
+
+/home/grinikolov/bin/dol/hstphot1.1/hstphot ngc2121final.dat  3.5 5.0 -1 0 0 0 0 576 n2121F555W400a_u5dd0106r 0 0 n2121F555W400b_u5dd0107r -11 -5 n2121F555W400c_u5dd0108r -16 -16 n2121F555W400d_u5dd0109r -5 -11 n2121F814W400e_u5dd0101r 0 0 n2121F814W400f_u5dd0102r -11 -5 n2121F814W400g_u5dd0103r -16 -16 n2121F555W400a_u5dd0106r  V I 13 27 -0.5 2.25  0.5 0.5 0.5 0.5
+ /home/grinikolov/bin/dol/hstphot1.1/distort ngc2121final.dat ngc2121final.coo 1
+
+# Adding line numbers as first column
+nl ngc2121final.coo > ngc2121final.coo.nl
+
+# Data quality for file with line numbers: $9 Type < 3; $4 Chi <2.5; $6 (-0.3< Sharpness <0.3); $10$20 Counts not 0.0; $13$23 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($4<=2.5) && ($6>=-0.3) && ($6<=0.3) && ($9<=3.) && ($10!=0.0) && ($20!=0.0) && ($13<=89.9) && ($23<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  $1, $2, $3, $13, $14, $23, $24, ($13-$23), (sqrt(($14*$14)+($24*$24)))}' ngc2121final.coo.nl > ngc2121final.pht
+
+# Fake Data quality and COMPLETENESS: $19 Type < 3; $14 Chi <2.5; $16 (-0.3< Sharpness <0.3); $20$30 Counts not 0.0; $23$33 Mag < 90.0  and COMPLETENESS (the same chip $1=$11; X,Y positions same within tolerance of 1 chip pixel  and V magnitude within 1 mag tolerance.
+awk 'BEGIN {FS=" "} {c=0;  if (($14<=2.5) && ($16>=-0.3) && ($16<=0.3) && ($19<=3.) && ($20!=0.0) && ($30!=0.0) && ($23<=89.9) && ($33<=89.9)  &&  ($1==$11) && ($12<=$2+1) && ($12>=$2-1) && ($23<=$6+1) && ($23>=$6-1))  {c=1}}   {print  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, c} ' ngc2121final.dat.fake > ngc2121final.coo.fake
+/home/grinikolov/bin/dol/hstphot1.1/distort ngc2121final.coo.fake ngc2121final.pht.fake 1
+
+
+echo HSTphot script finished! 
+#=============================================================
+

@@ -1,0 +1,150 @@
+date 
+pwd
+
+echo Cluster is NGC 2157
+
+ # cp ../../datasets/u2y80401t.c*f.fits.gz .
+ # cp ../../datasets/u2y80402t.c*f.fits.gz .
+ # cp ../../datasets/u2y80403t.c*f.fits.gz .
+ # cp ../../datasets/u2y80404t.c*f.fits.gz .
+ # cp ../../datasets/u2y80405t.c*f.fits.gz .
+ # cp ../../datasets/u2y80406t.c*f.fits.gz .
+ # cp ../../datasets/u2y80407t.c*f.fits.gz .
+ # cp ../../datasets/u2y80409t.c*f.fits.gz .
+ # cp ../../datasets/u2y8040at.c*f.fits.gz .
+ # cp ../../datasets/u2y8040bt.c*f.fits.gz .
+ # cp ../../datasets/u2y8040ct.c*f.fits.gz .
+ # cp ../../datasets/u2y8040dt.c*f.fits.gz .
+ # gunzip *.gz
+
+# The Reference frame is  u2y80401t.c0f.fits
+
+ls -l u2y80401t.c*f.fits
+ls -l u2y80402t.c*f.fits
+ls -l u2y80403t.c*f.fits
+ls -l u2y80404t.c*f.fits
+ls -l u2y80405t.c*f.fits
+ls -l u2y80406t.c*f.fits
+ls -l u2y80407t.c*f.fits
+ls -l u2y80409t.c*f.fits
+ls -l u2y8040at.c*f.fits
+ls -l u2y8040bt.c*f.fits
+ls -l u2y8040ct.c*f.fits
+ls -l u2y8040dt.c*f.fits
+
+echo Masking with Data Quality file
+/home/grigor/bin/hstphot1.1/mask u2y80401t.c0f.fits u2y80401t.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y80402t.c0f.fits u2y80402t.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y80403t.c0f.fits u2y80403t.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y80404t.c0f.fits u2y80404t.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y80405t.c0f.fits u2y80405t.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y80406t.c0f.fits u2y80406t.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y80407t.c0f.fits u2y80407t.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y80409t.c0f.fits u2y80409t.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y8040at.c0f.fits u2y8040at.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y8040bt.c0f.fits u2y8040bt.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y8040ct.c0f.fits u2y8040ct.c1f.fits
+/home/grigor/bin/hstphot1.1/mask u2y8040dt.c0f.fits u2y8040dt.c1f.fits
+
+echo Renaming the files
+mv u2y80401t.c0f.fits ngc2157F555W300a_u2y80401t.fits
+mv u2y80402t.c0f.fits ngc2157F555W300b_u2y80402t.fits
+mv u2y80403t.c0f.fits ngc2157F555W300c_u2y80403t.fits
+mv u2y80404t.c0f.fits ngc2157F814W300d_u2y80404t.fits
+mv u2y80405t.c0f.fits ngc2157F814W300e_u2y80405t.fits
+mv u2y80406t.c0f.fits ngc2157F814W300f_u2y80406t.fits
+mv u2y80407t.c0f.fits ngc2157F814W300g_u2y80407t.fits
+mv u2y80409t.c0f.fits ngc2157F555W300h_u2y80409t.fits
+mv u2y8040at.c0f.fits ngc2157F555W300i_u2y8040at.fits
+mv u2y8040bt.c0f.fits ngc2157F555W10j_u2y8040bt.fits
+mv u2y8040ct.c0f.fits ngc2157F555W10k_u2y8040ct.fits
+mv u2y8040dt.c0f.fits ngc2157F814W10l_u2y8040dt.fits
+
+echo Computing sky
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W300a_u2y80401t
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W300b_u2y80402t
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W300c_u2y80403t
+/home/grigor/bin/hstphot1.1/getsky ngc2157F814W300d_u2y80404t
+/home/grigor/bin/hstphot1.1/getsky ngc2157F814W300e_u2y80405t
+/home/grigor/bin/hstphot1.1/getsky ngc2157F814W300f_u2y80406t
+/home/grigor/bin/hstphot1.1/getsky ngc2157F814W300g_u2y80407t
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W300h_u2y80409t
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W300i_u2y8040at
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W10j_u2y8040bt
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W10k_u2y8040ct
+/home/grigor/bin/hstphot1.1/getsky ngc2157F814W10l_u2y8040dt
+
+
+echo Removing Cosmic Rays
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F555W300a_u2y80401t 0 0 0 0 0  ngc2157F555W300b_u2y80402t 0 0 0 0 0  ngc2157F555W300c_u2y80403t 0 0 0 0 0   ngc2157F555W300h_u2y80409t 0 0 0 11 11  ngc2157F555W300i_u2y8040at 0 0 0 11 11  
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F555W300a_u2y80401t 0 0 0 0 0  ngc2157F555W300b_u2y80402t 0 0 0 0 0  ngc2157F555W300c_u2y80403t 0 0 0 0 0   ngc2157F555W300h_u2y80409t 0 0 0 11 11  ngc2157F555W300i_u2y8040at 0 0 0 11 11  
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F555W300a_u2y80401t 0 0 0 0 0  ngc2157F555W300b_u2y80402t 0 0 0 0 0  ngc2157F555W300c_u2y80403t 0 0 0 0 0   ngc2157F555W300h_u2y80409t 0 0 0 11 11  ngc2157F555W300i_u2y8040at 0 0 0 11 11  
+
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F814W300d_u2y80404t 0 0 0 0 0  ngc2157F814W300e_u2y80405t 0 0 0 0 0  ngc2157F814W300f_u2y80406t 0 0 0 0 0  ngc2157F814W300g_u2y80407t 0 0 0 11 11
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F814W300d_u2y80404t 0 0 0 0 0  ngc2157F814W300e_u2y80405t 0 0 0 0 0  ngc2157F814W300f_u2y80406t 0 0 0 0 0  ngc2157F814W300g_u2y80407t 0 0 0 11 11
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F814W300d_u2y80404t 0 0 0 0 0  ngc2157F814W300e_u2y80405t 0 0 0 0 0  ngc2157F814W300f_u2y80406t 0 0 0 0 0  ngc2157F814W300g_u2y80407t 0 0 0 11 11
+
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F555W10j_u2y8040bt 0 0 0 0 0  ngc2157F555W10k_u2y8040ct 0 0 0 0 0 
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F555W10j_u2y8040bt 0 0 0 0 0  ngc2157F555W10k_u2y8040ct 0 0 0 0 0 
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  ngc2157F555W10j_u2y8040bt 0 0 0 0 0  ngc2157F555W10k_u2y8040ct 0 0 0 0 0 
+
+echo Removing Hotpixels
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300a_u2y80401t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300b_u2y80402t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300c_u2y80403t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W300d_u2y80404t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W300e_u2y80405t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W300f_u2y80406t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W300g_u2y80407t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300h_u2y80409t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300i_u2y8040at
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W10j_u2y8040bt
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W10k_u2y8040ct
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W10l_u2y8040dt
+
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300a_u2y80401t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300b_u2y80402t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300c_u2y80403t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W300d_u2y80404t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W300e_u2y80405t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W300f_u2y80406t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W300g_u2y80407t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300h_u2y80409t
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W300i_u2y8040at
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W10j_u2y8040bt
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F555W10k_u2y8040ct
+/home/grigor/bin/hstphot1.1/hotpixels  ngc2157F814W10l_u2y8040dt
+
+echo Coadding registered images
+/home/grigor/bin/hstphot1.1/coadd  ngc2157F555W300a_u2y80401t.fits ngc2157F555W300b_u2y80402t.fits ngc2157F555W300c_u2y80403t.fits ngc2157F555W900abc.fits 
+/home/grigor/bin/hstphot1.1/coadd  ngc2157F814W300d_u2y80404t.fits ngc2157F814W300e_u2y80405t.fits ngc2157F814W300f_u2y80406t.fits ngc2157F814W900def.fits  
+/home/grigor/bin/hstphot1.1/coadd  ngc2157F555W300h_u2y80409t.fits ngc2157F555W300i_u2y8040at.fits ngc2157F555W600hi.fits
+/home/grigor/bin/hstphot1.1/coadd  ngc2157F555W10j_u2y8040bt.fits  ngc2157F555W10k_u2y8040ct.fits  ngc2157F555W20jk.fits
+
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W900abc
+/home/grigor/bin/hstphot1.1/getsky ngc2157F814W900def
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W600hi
+/home/grigor/bin/hstphot1.1/getsky ngc2157F555W20jk
+
+
+#==================================================================
+#             RUNNING  HSTphot  - Refit sky (option 512)  and
+#				- Artificial stars (option 64)  [col1=V, col2=I, Vmin=14, Vmax=27, V-Imin=-1, V-Imax=3, weights (1=900 stars/CMDbin) total=(27-13)/0.5 * (2.25-(-0.5))/0.25 = 308 bins]
+#                               - weight 0.5 
+
+/home/grinikolov/bin/dol/hstphot1.1/hstphot ngc2157final.dat 3.5 5.0 -1 0 0 0 0 576 ngc2157F555W900abc 0 0 ngc2157F814W900def 0 0 ngc2157F814W300g_u2y80407t 11 11 ngc2157F555W600hi 11 11 ngc2157F555W20jk 11 11 ngc2157F814W10l_u2y8040dt 11 11  ngc2157F555W900abc   V I 13 27 -0.5 2.25  0.5 0.5 0.5 0.5 
+/home/grinikolov/bin/dol/hstphot1.1/distort ngc2157final.dat ngc2157final.coo 1
+
+# Adding line numbers as first column
+nl ngc2157final.coo > ngc2157final.coo.nl
+
+# Data quality for file with line numbers: $9 Type < 3; $4 Chi <2.5; $6 (-0.3< Sharpness <0.3); $10$20 Counts not 0.0; $13$23 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($4<=2.5) && ($6>=-0.3) && ($6<=0.3) && ($9<=3.) && ($10!=0.0) && ($20!=0.0) && ($13<=89.9) && ($23<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  $1, $2, $3, $13, $14, $23, $24, ($13-$23), (sqrt(($14*$14)+($24*$24)))}' ngc2157final.coo.nl > ngc2157final.pht
+
+# Fake Data quality and COMPLETENESS: $19 Type < 3; $14 Chi <2.5; $16 (-0.3< Sharpness <0.3); $20$30 Counts not 0.0; $23$33 Mag < 90.0  and COMPLETENESS (the same chip $1=$11; X,Y positions same within tolerance of 1 chip pixel  and V magnitude within 1 mag tolerance.
+awk 'BEGIN {FS=" "} {c=0;  if (($14<=2.5) && ($16>=-0.3) && ($16<=0.3) && ($19<=3.) && ($20!=0.0) && ($30!=0.0) && ($23<=89.9) && ($33<=89.9)  &&  ($1==$11) && ($12<=$2+1) && ($12>=$2-1) && ($23<=$6+1) && ($23>=$6-1))  {c=1}}   {print  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, c} ' ngc2157final.dat.fake > ngc2157final.coo.fake
+/home/grinikolov/bin/dol/hstphot1.1/distort ngc2157final.coo.fake ngc2157final.pht.fake 1
+
+echo HSTphot script finished! 
+#=============================================================
+

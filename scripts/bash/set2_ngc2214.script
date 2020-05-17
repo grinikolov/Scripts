@@ -1,0 +1,145 @@
+echo u5ay0201r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0201r_c0f.fits  u5ay0201r_c1f.fits
+mv u5ay0201r_c0f.fits n2214s2F555W350a.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F555W350a
+echo u5ay0202r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0202r_c0f.fits  u5ay0202r_c1f.fits
+mv u5ay0202r_c0f.fits n2214s2F555W350b.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F555W350b
+echo u5ay0203r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0203r_c0f.fits  u5ay0203r_c1f.fits
+mv u5ay0203r_c0f.fits n2214s2F555W10c.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F555W10c
+echo u5ay0204r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0204r_c0f.fits  u5ay0204r_c1f.fits
+mv u5ay0204r_c0f.fits n2214s2F814W350d.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F814W350d
+echo u5ay0205r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0205r_c0f.fits  u5ay0205r_c1f.fits
+mv u5ay0205r_c0f.fits n2214s2F814W350e.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F814W350e
+echo u5ay0206r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0206r_c0f.fits  u5ay0206r_c1f.fits
+mv u5ay0206r_c0f.fits n2214s2F814W10f.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F814W10f
+echo u5ay0207r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0207r_c0f.fits  u5ay0207r_c1f.fits
+mv u5ay0207r_c0f.fits n2214s2F555W350g.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F555W350g
+echo u5ay0208r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0208r_c0f.fits  u5ay0208r_c1f.fits
+mv u5ay0208r_c0f.fits n2214s2F555W350h.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F555W350h
+echo u5ay0209r_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay0209r_c0f.fits  u5ay0209r_c1f.fits
+mv u5ay0209r_c0f.fits n2214s2F814W350i.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F814W350i
+echo u5ay020ar_c0f.fits
+/home/grigor/bin/hstphot1.1.7/mask u5ay020ar_c0f.fits  u5ay020ar_c1f.fits
+mv u5ay020ar_c0f.fits n2214s2F814W350j.fits
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F814W350j
+
+
+
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F555W350a 0 0 0 0 0 n2214s2F555W350b 0 0 0 0 0 
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F555W350a 0 0 0 0 0 n2214s2F555W350b 0 0 0 0 0 
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F555W350a 0 0 0 0 0 n2214s2F555W350b 0 0 0 0 0 
+
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F814W350d 0 0 0 0 0 n2214s2F814W350e 0 0 0 0 0
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F814W350d 0 0 0 0 0 n2214s2F814W350e 0 0 0 0 0
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F814W350d 0 0 0 0 0 n2214s2F814W350e 0 0 0 0 0
+
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F555W350g 0 0 0 0 0 n2214s2F555W350h 0 0 0 0 0
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F555W350g 0 0 0 0 0 n2214s2F555W350h 0 0 0 0 0
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F555W350g 0 0 0 0 0 n2214s2F555W350h 0 0 0 0 0
+
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F814W350i 0 0 0 0 0 n2214s2F814W350j 0 0 0 0 0
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F814W350i 0 0 0 0 0 n2214s2F814W350j 0 0 0 0 0
+/home/grigor/bin/hstphot1.1.7/crmask 1 3 0  n2214s2F814W350i 0 0 0 0 0 n2214s2F814W350j 0 0 0 0 0
+
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F555W350a
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F555W350b
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F555W10c
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F814W350d
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F814W350e
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F814W10f
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F555W350g
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F555W350h
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F814W350i
+/home/grigor/bin/hstphot1.1.7/hotpixels n2214s2F814W350j
+
+
+/home/grigor/bin/hstphot1.1.7/coadd n2214s2F555W350a.fits n2214s2F555W350b.fits n2214s2F555W700ab_deep.fits
+/home/grigor/bin/hstphot1.1.7/coadd n2214s2F814W350d.fits n2214s2F814W350e.fits n2214s2F814W700de_deep.fits
+/home/grigor/bin/hstphot1.1.7/coadd n2214s2F555W350g.fits n2214s2F555W350h.fits n2214s2F555W700gh_deep.fits
+/home/grigor/bin/hstphot1.1.7/coadd n2214s2F814W350i.fits n2214s2F814W350j.fits n2214s2F814W700ij_deep.fits
+
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F555W700ab_deep
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F814W700de_deep
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F555W700gh_deep
+/home/grigor/bin/hstphot1.1.7/getsky n2214s2F814W700ij_deep
+
+
+#==================================================================
+#             RUNNING  HSTphot 
+
+/home/grigor/bin/hstphot1.1.7/hstphot n2214set2b.dat 3.5 5.0 -1 0 0 0 0 2 n2214s2F555W700ab_deep 0 0 n2214s2F555W10c 0 0 n2214s2F814W700de_deep 0 0 n2214s2F814W10f 0 0 n2214s2F555W700gh_deep 5 5 n2214s2F814W700ij_deep 5 5  n2214s2F555W700ab_deep
+
+/home/grigor/bin/hstphot1.1.7/distort n2214set2b.dat n2214set2b.coo 1
+
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' n2214set2b.coo > n2214set2b.pht
+
+
+#==================================================================
+#             RUNNING  HSTphot with an Artificial star test (option 64+2)
+
+/home/grigor/bin/hstphot1.1.7/hstphot n2214set2at.dat 3.5 5.0 -1 0 0 0 0 66 n2214s2F555W700ab_deep 0 0 n2214s2F555W10c 0 0 n2214s2F814W700de_deep 0 0 n2214s2F814W10f 0 0 n2214s2F555W700gh_deep 5 5 n2214s2F814W700ij_deep 5 5 n2214s2F555W700ab_deep  V I 12 29 -2 4 1 1 1 1 
+
+/home/grigor/bin/hstphot1.1.7/distort n2214set2at.dat n2214set2at.coo 1
+
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' n2214set2at.coo > n2214set2at.pht
+
+/home/grigor/bin/hstphot1.1.7/distort n2214set2at.dat.fake n2214set2at.coo.fake 1
+
+
+#==================================================================
+#             RUNNING  HSTphot  - Refit sky (option 512)  and
+#				- Artificial stars (option 64)  [col1=V, col2=I, Vmin=14, Vmax=27, V-Imin=-1, V-Imax=3, weights (1=900 stars/CMDbin) total=(27-13)/0.5 * (2.25-(-0.5))/0.25 = 308 bins]
+#                               - weight 0.5 
+
+/home/grigor/bin/hstphot1.1/hstphot ngc2214_set2_re_sky_f0.5.dat 3.5 5.0 -1 0 0 0 0 576 n2214s2F555W700ab_deep 0 0 n2214s2F555W10c 0 0 n2214s2F814W700de_deep 0 0 n2214s2F814W10f 0 0 n2214s2F555W700gh_deep 5 5 n2214s2F814W700ij_deep 5 5 n2214s2F555W700ab_deep  V I 13 27 -0.5 2.25  0.5 0.5 0.5 0.5 
+/home/grigor/bin/hstphot1.1/distort ngc2214_set2_re_sky_f0.5.dat ngc2214_set2_re_sky_f0.5.coo 1
+
+# Data quality: $8 Type < 3; $3 Chi <2.5; $5 (-0.3< Sharpness <0.3); $9$19 Counts not 0.0; $12$22 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($5>=-0.3) && ($5<=0.3) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' ngc2214_set2_re_sky_f0.5.coo > ngc2214_set2_re_sky_f0.5.pht
+
+
+# Fake Data quality and COMPLETENESS: $19 Type < 3; $14 Chi <2.5; $16 (-0.3< Sharpness <0.3); $20$30 Counts not 0.0; $23$33 Mag < 90.0  and COMPLETENESS (the same chip $1=$11; X,Y positions same within tolerance of 1 chip pixel  and V magnitude within 1 mag tolerance.
+awk 'BEGIN {FS=" "} {c=0;  if (($14<=2.5) && ($16>=-0.3) && ($16<=0.3) && ($19<=3.) && ($20!=0.0) && ($30!=0.0) && ($23<=89.9) && ($33<=89.9)  &&  ($1==$11) && ($12<=$2+1) && ($12>=$2-1) && ($23<=$6+1) && ($23>=$6-1))  {c=1}}   {print  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, c} ' ngc2214_set2_re_sky_f0.5.dat.fake > ngc2214_set2_re_sky_f0.5.coo.fake
+/home/grigor/bin/hstphot1.1/distort ngc2214_set2_re_sky_f0.5.coo.fake ngc2214_set2_re_sky_f0.5.pht.fake 1
+
+
+
+## Copying input and output to separate files
+#awk 'BEGIN {FS=" "}    { print  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10 }' ngc2214_set2_re_sky_f0.5.dat.fake > ngc2214_set2_re_sky_f0.5.dat.fake.input
+#awk 'BEGIN {FS=" "}    { print  $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39 }' ngc2214_set2_re_sky_f0.5.dat.fake > ngc2214_set2_re_sky_f0.5.dat.fake.output
+
+## Converting chip coordinates to WCS
+#/home/grigor/bin/hstphot1.1/distort ngc2214_set2_re_sky_f0.5.dat.fake.input ngc2214_set2_re_sky_f0.5.coo.fake.input 1
+#/home/grigor/bin/hstphot1.1/distort ngc2214_set2_re_sky_f0.5.dat.fake.output ngc2214_set2_re_sky_f0.5.coo.fake.output 1
+
+## Adding line number in the beginning
+#awk 'BEGIN {FS=" "}  { print i+++1, $0 }' ngc2214_set2_re_sky_f0.5.dat.fake.input > ngc2214_set2_re_sky_f0.5.dat.fake.inputl
+#awk 'BEGIN {FS=" "}  { print i+++1, $0 }' ngc2214_set2_re_sky_f0.5.dat.fake.output > ngc2214_set2_re_sky_f0.5.dat.fake.outputl 
+
+
+
+
+
+
+
+
+
+
+
+

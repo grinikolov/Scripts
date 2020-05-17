@@ -1,0 +1,146 @@
+date
+echo Cluster is NGC 1711
+
+# cp ../../datasets/u2y80501m_c*f.fits .
+# cp ../../datasets/u2y80502r_c*f.fits .
+# cp ../../datasets/u2y80509r_c*f.fits .
+# cp ../../datasets/u2y8050br_c*f.fits .
+# cp ../../datasets/u2y8050cr_c*f.fits .
+# cp ../../datasets/u2y80504r_c*f.fits .
+# cp ../../datasets/u2y80505r_c*f.fits .
+# cp ../../datasets/u2y80506r_c*f.fits .
+# cp ../../datasets/u2y80507r_c*f.fits .
+# cp ../../datasets/u2y80508r_c*f.fits .
+# cp ../../datasets/u2y8050dr_c*f.fits .
+
+echo The Reference frame is U5AY0901R.C0F.FITS
+
+ls -l  u2y80501m_c*f.fits
+ls -l  u2y80502r_c*f.fits
+ls -l  u2y80509r_c*f.fits
+ls -l  u2y8050br_c*f.fits
+ls -l  u2y8050cr_c*f.fits
+ls -l  u2y80504r_c*f.fits
+ls -l  u2y80505r_c*f.fits
+ls -l  u2y80506r_c*f.fits
+ls -l  u2y80507r_c*f.fits
+ls -l  u2y80508r_c*f.fits
+ls -l  u2y8050dr_c*f.fits
+
+echo Masking with Data Quality file
+
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y80501m_c0f.fits u2y80501m_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y80502r_c0f.fits u2y80502r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y80509r_c0f.fits u2y80509r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y8050br_c0f.fits u2y8050br_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y8050cr_c0f.fits u2y8050cr_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y80504r_c0f.fits u2y80504r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y80505r_c0f.fits u2y80505r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y80506r_c0f.fits u2y80506r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y80507r_c0f.fits u2y80507r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y80508r_c0f.fits u2y80508r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u2y8050dr_c0f.fits u2y8050dr_c1f.fits
+
+echo Renaming the files
+mv u2y80501m_c0f.fits n1711F555W300a.fits
+mv u2y80502r_c0f.fits n1711F555W300b.fits
+mv u2y80509r_c0f.fits n1711F555W300c.fits
+mv u2y8050br_c0f.fits n1711F555W10d.fits
+mv u2y8050cr_c0f.fits n1711F555W10e.fits
+mv u2y80504r_c0f.fits n1711F814W300f.fits
+mv u2y80505r_c0f.fits n1711F814W300g.fits
+mv u2y80506r_c0f.fits n1711F814W300h.fits
+mv u2y80507r_c0f.fits n1711F814W300i.fits
+mv u2y80508r_c0f.fits n1711F814W300j.fits
+mv u2y8050dr_c0f.fits n1711F814W10k.fits
+
+echo Computing sky
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F555W300a
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F555W300b
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F555W300c
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F555W10d
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F555W10e
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F814W300f
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F814W300g
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F814W300h
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F814W300i
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F814W300j
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F814W10k
+
+echo Removing Cosmic Rays
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F555W300a 0 0 0 0 0 n1711F555W300b 0 0 0 0 0 n1711F555W300c 0 0 0 11 11 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F555W300a 0 0 0 0 0 n1711F555W300b 0 0 0 0 0 n1711F555W300c 0 0 0 11 11 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F555W300a 0 0 0 0 0 n1711F555W300b 0 0 0 0 0 n1711F555W300c 0 0 0 11 11 
+
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F555W10d 0 0 0 0 0 n1711F555W10e 0 0 0 0 0
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F555W10d 0 0 0 0 0 n1711F555W10e 0 0 0 0 0
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F555W10d 0 0 0 0 0 n1711F555W10e 0 0 0 0 0
+
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F814W300f 0 0 0 0 0 n1711F814W300g 0 0 0 0 0 n1711F814W300h 0 0 0 0 0 n1711F814W300i 0 0 0 11 11 n1711F814W300j 0 0 0 11 11 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F814W300f 0 0 0 0 0 n1711F814W300g 0 0 0 0 0 n1711F814W300h 0 0 0 0 0 n1711F814W300i 0 0 0 11 11 n1711F814W300j 0 0 0 11 11 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0 n1711F814W300f 0 0 0 0 0 n1711F814W300g 0 0 0 0 0 n1711F814W300h 0 0 0 0 0 n1711F814W300i 0 0 0 11 11 n1711F814W300j 0 0 0 11 11 
+
+echo Removing Hotpixels
+
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W300a
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W300b
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W300c
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W10d
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W10e
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300f
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300g
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300h
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300i
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300j
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W10k
+
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W300a
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W300b
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W300c
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W10d
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F555W10e
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300f
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300g
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300h
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300i
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W300j
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n1711F814W10k
+
+echo Coadding registered images
+/home/grinikolov/bin/dol/hstphot1.1/coadd n1711F555W300a.fits n1711F555W300b.fits n1711F555W600ab_deep.fits
+/home/grinikolov/bin/dol/hstphot1.1/coadd n1711F555W10d.fits  n1711F555W10e.fits  n1711F555W20de_deep.fits
+/home/grinikolov/bin/dol/hstphot1.1/coadd n1711F814W300f.fits n1711F814W300g.fits n1711F814W300h.fits n1711F814W900fgh_deep.fits
+/home/grinikolov/bin/dol/hstphot1.1/coadd n1711F814W300i.fits n1711F814W300j.fits n1711F814W600ij_deep.fits
+
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F555W600ab_deep
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F555W20de_deep
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F814W900fgh_deep
+/home/grinikolov/bin/dol/hstphot1.1/getsky n1711F814W600ij_deep
+
+
+#==================================================================
+#             RUNNING  HSTphot  - Refit sky (option 512)  and
+#				- Artificial stars (option 64)  [col1=V, col2=I, Vmin=14, Vmax=27, V-Imin=-1, V-Imax=3, weights (1=900 stars/CMDbin) total=(27-13)/0.5 * (2.25-(-0.5))/0.25 = 308 bins]
+#                               - weight 0.5 
+
+/home/grinikolov/bin/dol/hstphot1.1/hstphot ngc1711final.dat 3.5 5.0 -1 0 0 0 0 576 n1711F555W600ab_deep 0 0 n1711F555W300c 11 11 n1711F555W20de_deep 11 11 n1711F814W900fgh_deep 0 0 n1711F814W600ij_deep 11 11 n1711F814W10k 11 11 n1711F555W600ab_deep  V I 13 27 -0.5 2.25  0.5 0.5 0.5 0.5 
+
+/home/grinikolov/bin/dol/hstphot1.1/distort ngc1711final.dat ngc1711final.coo 1
+
+
+# Adding line numbers as first column
+nl ngc1711final.coo > ngc1711final.coo.nl
+
+# Data quality for file with line numbers: $9 Type < 3; $4 Chi <2.5; $6 (-0.3< Sharpness <0.3); $10$20 Counts not 0.0; $13$23 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($4<=2.5) && ($6>=-0.3) && ($6<=0.3) && ($9<=3.) && ($10!=0.0) && ($20!=0.0) && ($13<=89.9) && ($23<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  $1, $2, $3, $13, $14, $23, $24, ($13-$23), (sqrt(($14*$14)+($24*$24)))}' ngc1711final.coo.nl > ngc1711final.pht
+
+# Fake Data quality and COMPLETENESS: $19 Type < 3; $14 Chi <2.5; $16 (-0.3< Sharpness <0.3); $20$30 Counts not 0.0; $23$33 Mag < 90.0  and COMPLETENESS (the same chip $1=$11; X,Y positions same within tolerance of 1 chip pixel  and V magnitude within 1 mag tolerance.
+awk 'BEGIN {FS=" "} {c=0;  if (($14<=2.5) && ($16>=-0.3) && ($16<=0.3) && ($19<=3.) && ($20!=0.0) && ($30!=0.0) && ($23<=89.9) && ($33<=89.9)  &&  ($1==$11) && ($12<=$2+1) && ($12>=$2-1) && ($23<=$6+1) && ($23>=$6-1))  {c=1}}   {print  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, c} ' ngc1711final.dat.fake > ngc1711final.coo.fake
+/home/grinikolov/bin/dol/hstphot1.1/distort ngc1711final.coo.fake ngc1711final.pht.fake 1
+
+
+echo HSTphot script finished! 
+#=============================================================
+
+
+

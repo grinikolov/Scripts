@@ -1,0 +1,172 @@
+
+# The Reference frame is u5dd0106r.c0f.fits
+
+
+echo u5dd0101r.c0f.fits	 	
+echo u5dd0102r.c0f.fits	 	
+echo u5dd0103r.c0f.fits	 	
+echo u5dd0106r.c0f.fits	 	
+echo u5dd0107r.c0f.fits	 	
+echo u5dd0108r.c0f.fits	 	
+echo u5dd0109r.c0f.fits	 	
+# Masking with Data Quality file
+/home/grigor/bin/hstphot1.1/mask u5dd0101r.c0f.fits u5dd0101r.c1f.fits		 	
+/home/grigor/bin/hstphot1.1/mask u5dd0102r.c0f.fits u5dd0102r.c1f.fits		 	
+/home/grigor/bin/hstphot1.1/mask u5dd0103r.c0f.fits u5dd0103r.c1f.fits		 	
+/home/grigor/bin/hstphot1.1/mask u5dd0106r.c0f.fits u5dd0106r.c1f.fits		 	
+/home/grigor/bin/hstphot1.1/mask u5dd0107r.c0f.fits u5dd0107r.c1f.fits		 	
+/home/grigor/bin/hstphot1.1/mask u5dd0108r.c0f.fits u5dd0108r.c1f.fits		 	
+/home/grigor/bin/hstphot1.1/mask u5dd0109r.c0f.fits u5dd0109r.c1f.fits		 	
+
+# Renaming the files
+mv u5dd0101r.c0f.fits  n2121F814W400e_u5dd0101r.fits		  	
+mv u5dd0102r.c0f.fits  n2121F814W400f_u5dd0102r.fits		  	
+mv u5dd0103r.c0f.fits  n2121F814W400g_u5dd0103r.fits		  	
+mv u5dd0106r.c0f.fits  n2121F555W400a_u5dd0106r.fits		  	
+mv u5dd0107r.c0f.fits  n2121F555W400b_u5dd0107r.fits		  	
+mv u5dd0108r.c0f.fits  n2121F555W400c_u5dd0108r.fits		  	
+mv u5dd0109r.c0f.fits  n2121F555W400d_u5dd0109r.fits		  	
+
+# Computing Sky
+/home/grigor/bin/hstphot1.1/getsky n2121F814W400e_u5dd0101r 
+/home/grigor/bin/hstphot1.1/getsky n2121F814W400f_u5dd0102r 
+/home/grigor/bin/hstphot1.1/getsky n2121F814W400g_u5dd0103r 
+/home/grigor/bin/hstphot1.1/getsky n2121F555W400a_u5dd0106r 
+/home/grigor/bin/hstphot1.1/getsky n2121F555W400b_u5dd0107r 
+/home/grigor/bin/hstphot1.1/getsky n2121F555W400c_u5dd0108r 
+/home/grigor/bin/hstphot1.1/getsky n2121F555W400d_u5dd0109r 
+
+# Removing Cosmic Rays
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  n2121F814W400e_u5dd0101r 0 0 0 0 0  n2121F814W400f_u5dd0102r 0 0 0 -11 -5 n2121F814W400g_u5dd0103r 0 0 0 -16 -16   
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  n2121F814W400e_u5dd0101r 0 0 0 0 0  n2121F814W400f_u5dd0102r 0 0 0 -11 -5 n2121F814W400g_u5dd0103r 0 0 0 -16 -16   
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  n2121F814W400e_u5dd0101r 0 0 0 0 0  n2121F814W400f_u5dd0102r 0 0 0 -11 -5 n2121F814W400g_u5dd0103r 0 0 0 -16 -16   
+
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  n2121F555W400a_u5dd0106r 0 0 0 0 0  n2121F555W400b_u5dd0107r 0 0 0 -11 -5 n2121F555W400c_u5dd0108r 0 0 0 -16 -16 n2121F555W400d_u5dd0109r  0 0 0 -5 -11 
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  n2121F555W400a_u5dd0106r 0 0 0 0 0  n2121F555W400b_u5dd0107r 0 0 0 -11 -5 n2121F555W400c_u5dd0108r 0 0 0 -16 -16 n2121F555W400d_u5dd0109r  0 0 0 -5 -11 
+/home/grigor/bin/hstphot1.1/crmask 1 3 0  n2121F555W400a_u5dd0106r 0 0 0 0 0  n2121F555W400b_u5dd0107r 0 0 0 -11 -5 n2121F555W400c_u5dd0108r 0 0 0 -16 -16 n2121F555W400d_u5dd0109r  0 0 0 -5 -11 
+
+# Removing Hotpixels
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F814W400e_u5dd0101r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F814W400f_u5dd0102r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F814W400g_u5dd0103r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F555W400a_u5dd0106r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F555W400b_u5dd0107r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F555W400c_u5dd0108r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F555W400d_u5dd0109r 
+
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F814W400e_u5dd0101r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F814W400f_u5dd0102r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F814W400g_u5dd0103r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F555W400a_u5dd0106r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F555W400b_u5dd0107r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F555W400c_u5dd0108r 
+/home/grigor/bin/hstphot1.1/hotpixels  n2121F555W400d_u5dd0109r 
+
+#==================================================================
+#             RUNNING  HSTphot 
+ # RE_SKY photometry is not correct - it has option 2 turned on, not 512 !!!  # comment G.Nikolov 2010-01-28, check the log
+#/home/grigor/bin/hstphot1.1/hstphot ngc2121_re_sky.dat 3.5 5.0 -1 0 0 0 0 2 n2121F555W400a_u5dd0106r 0 0 n2121F555W400b_u5dd0107r -11 -5 n2121F555W400c_u5dd0108r -16 -16 n2121F555W400d_u5dd0109r -5 -11 n2121F814W400e_u5dd0101r 0 0 n2121F814W400f_u5dd0102r -11 -5 n2121F814W400g_u5dd0103r -16 -16 n2121F555W400a_u5dd0106r 
+
+/home/grigor/bin/hstphot1.1/distort ngc2121_re_sky.dat ngc2121_re_sky.coo 1
+
+# Data quality: $8 Type < 3; $3 Chi <2.5; $5 (-0.3< Sharpness <0.3); $9$19 Counts not 0.0; $12$22 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($5>=-0.3) && ($5<=0.3) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' ngc2121_re_sky.coo > ngc2121_re_sky.pht
+
+
+
+
+#==================================================================
+#             RUNNING  HSTphot  - Refit sky (option 512)  and
+#				- Artificial stars (option 64)  [col1=V, col2=I, Vmin=14, Vmax=27, V-Imin=-1, V-Imax=3, weights (1=900 stars/CMDbin) total=(27-13)/0.5 * (2.25-(-0.5))/0.25 = 308 bins]
+#                               - weight 0.5 
+
+/home/grigor/bin/hstphot1.1/hstphot ngc2121re_sky_f0.5.dat 3.5 5.0 -1 0 0 0 0 576  n2121F555W400a_u5dd0106r 0 0 n2121F555W400b_u5dd0107r -11 -5 n2121F555W400c_u5dd0108r -16 -16 n2121F555W400d_u5dd0109r -5 -11 n2121F814W400e_u5dd0101r 0 0 n2121F814W400f_u5dd0102r -11 -5 n2121F814W400g_u5dd0103r -16 -16 n2121F555W400a_u5dd0106r  V I 13 27 -0.5 2.25  0.5 0.5 0.5 0.5 
+/home/grigor/bin/hstphot1.1/distort ngc2121re_sky_f0.5.dat ngc2121re_sky_f0.5.coo 1
+
+# Data quality: $8 Type < 3; $3 Chi <2.5; $5 (-0.3< Sharpness <0.3); $9$19 Counts not 0.0; $12$22 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($5>=-0.3) && ($5<=0.3) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' ngc2121re_sky_f0.5.coo > ngc2121re_sky_f0.5.pht
+
+# Fake Data quality and COMPLETENESS: $19 Type < 3; $14 Chi <2.5; $16 (-0.3< Sharpness <0.3); $20$30 Counts not 0.0; $23$33 Mag < 90.0  and COMPLETENESS (the same chip $1=$11; X,Y positions same within tolerance of 1 chip pixel  and V magnitude within 1 mag tolerance.
+awk 'BEGIN {FS=" "} {c=0;  if (($14<=2.5) && ($16>=-0.3) && ($16<=0.3) && ($19<=3.) && ($20!=0.0) && ($30!=0.0) && ($23<=89.9) && ($33<=89.9)  &&  ($1==$11) && ($12<=$2+1) && ($12>=$2-1) && ($23<=$6+1) && ($23>=$6-1))  {c=1}}   {print  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, c} ' ngc2121re_sky_f0.5.dat.fake > ngc2121re_sky_f0.5.coo
+/home/grigor/bin/hstphot1.1/distort ngc2121re_sky_f0.5.coo ngc2121re_sky_f0.5.pht.fake 1
+
+
+
+
+
+#==========  FAKE photometry ( 1 )  ======================
+
+# Creating the list of stars
+awk 'BEGIN {FS=" "} { printf "%3i %15.3f %15.3f %15.3f\n", $1, $2, $3, ($10-$11)}'  ngc2121_re_sky.dat > Vmags.list 
+awk 'BEGIN {FS=" "} { printf "%3i %15.3f %15.3f %15.3f\n", $1, $2, $3, ($20-$21)}'  ngc2121_re_sky.dat > Imags.list 
+
+# Estimating the mean PC_background  - The mean of (the total background level for PC stars)  in V and I
+awk 'BEGIN {FS=" "}{if ($1==0) {bck=bck+$11; i=i+++1; print i,($11),bck,"PC Background: ",(bck/i) ;p=i} else {{if ($1==1 && p==i) print " IN F555W PC BACKGROUND LEVEL IS: ",(bck/i) ;p=i+1 }}}' ngc2121_re_sky.dat > PC_background_V.dat ; grep -e "IN F555W PC BACKGROUND LEVEL IS:"   PC_background_V.dat
+awk 'BEGIN {FS=" "}{if ($1==0) {bck=bck+$21; i=i+++1; print i,($21),bck,"PC Background: ",(bck/i) ;p=i} else {{if ($1==1 && p==i) print " IN F814W PC BACKGROUND LEVEL IS: ",(bck/i) ;p=i+1 }}}' ngc2121_re_sky.dat > PC_background_I.dat ; grep -e "IN F814W PC BACKGROUND LEVEL IS:"   PC_background_I.dat
+
+ IN F555W PC BACKGROUND LEVEL IS:  9.33855
+ IN F814W PC BACKGROUND LEVEL IS:  7.2719
+
+dfits *_deep.fits | fitsort  ATODGAIN RNOISE
+
+#  Header keywords:
+# ATODGAIN= 	7.00000
+# RNOISE  =  	0.714286
+
+
+/home/grigor/bin/hstphot1.1/fake_image F555W Vmags.list 9.33855 7 0.714286 n2121_V_fake1.fits
+/home/grigor/bin/hstphot1.1/fake_image F814W Imags.list  7.2719 7 0.714286 n2121_I_fake1.fits
+
+/home/grigor/bin/hstphot1.1/getsky n2121_V_fake1
+/home/grigor/bin/hstphot1.1/getsky n2121_I_fake1
+
+/home/grigor/bin/hstphot1.1/hstphot ngc1711_re_VI_fake1.dat 3.5 5.0 -1 0 0 0 0 512 n2121_V_fake1 0 0 n2121_I_fake1 0 0 n2121_V_fake1
+
+/home/grigor/bin/hstphot1.1/distort  ngc1711_re_VI_fake1.dat  ngc1711_re_VI_fake1.coo 1
+
+# Data quality: $8 Type < 3; $3 Chi <2.5; $5 (-0.3< Sharpness <0.3); $9$19 Counts not 0.0; $12$22 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($5>=-0.3) && ($5<=0.3) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' ngc1711_re_VI_fake1.coo > ngc1711_re_VI_fake1.pht
+
+
+
+
+
+
+
+
+
+# ====================== Another fake test ( 2 )  ==========
+
+/home/grigor/bin/hstphot1.1/fake_image F555W Vmags.list 17.0426 7 0.714286 n2121_V_fake2.fits
+/home/grigor/bin/hstphot1.1/fake_image F814W Imags.list 12.1480 7 0.714286 n2121_I_fake2.fits
+
+/home/grigor/bin/hstphot1.1/getsky n2121_V_fake2
+/home/grigor/bin/hstphot1.1/getsky n2121_I_fake2
+
+/home/grigor/bin/hstphot1.1/hstphot ngc2121_VI_fake2.dat 3.5 5.0 -1 0 0 0 0 2 n2121_V_fake2 0 0 n2121_I_fake2 0 0 n2121_V_fake2
+/home/grigor/bin/hstphot1.1/distort  ngc2121_VI_fake2.dat  ngc2121_VI_fake2.coo 1
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' ngc2121_VI_fake2.coo > ngc2121_VI_fake2.pht
+
+# ====================== Yet another fake test ( 3 )  ==========
+
+/home/grigor/bin/hstphot1.1/fake_image F555W Vmags.list 17.0426 7 0.714286 n2121_V_fake3.fits
+/home/grigor/bin/hstphot1.1/fake_image F814W Imags.list 12.1480 7 0.714286 n2121_I_fake3.fits
+
+/home/grigor/bin/hstphot1.1/getsky n2121_V_fake3
+/home/grigor/bin/hstphot1.1/getsky n2121_I_fake3
+
+/home/grigor/bin/hstphot1.1/hstphot ngc2121_VI_fake3.dat 3.5 5.0 -1 0 0 0 0 2 n2121_V_fake3 0 0 n2121_I_fake3 0 0 n2121_V_fake3
+/home/grigor/bin/hstphot1.1/distort  ngc2121_VI_fake3.dat  ngc2121_VI_fake3.coo 1
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' ngc2121_VI_fake3.coo > ngc2121_VI_fake3.pht
+
+
+
+
+/home/grigor/bin/hstphot1.1/hstmosaic n2121F555W400a_u5dd0106r mosaic_F555W_u5dd0106r.fits
+
+
+
+
+
+
+

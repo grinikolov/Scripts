@@ -1,0 +1,141 @@
+date
+echo Cluster is NGC 2214 
+
+# cp ../../u5ay0201r_c*f.fits .
+# cp ../../u5ay0202r_c*f.fits .
+# cp ../../u5ay0203r_c*f.fits .
+# cp ../../u5ay0204r_c*f.fits .
+# cp ../../u5ay0205r_c*f.fits .
+# cp ../../u5ay0206r_c*f.fits .
+# cp ../../u5ay0207r_c*f.fits .
+# cp ../../u5ay0208r_c*f.fits .
+# cp ../../u5ay0209r_c*f.fits .
+# cp ../../u5ay020ar_c*f.fits .
+
+ls -l u5ay0201r_c0f.fits
+ls -l u5ay0202r_c0f.fits
+ls -l u5ay0203r_c0f.fits
+ls -l u5ay0204r_c0f.fits
+ls -l u5ay0205r_c0f.fits
+ls -l u5ay0206r_c0f.fits
+ls -l u5ay0207r_c0f.fits
+ls -l u5ay0208r_c0f.fits
+ls -l u5ay0209r_c0f.fits
+ls -l u5ay020ar_c0f.fits
+
+echo The Reference frame is u5ay0201r_c0f.fits
+
+
+echo Masking with Data Quality file
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0201r_c0f.fits  u5ay0201r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0202r_c0f.fits  u5ay0202r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0203r_c0f.fits  u5ay0203r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0204r_c0f.fits  u5ay0204r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0205r_c0f.fits  u5ay0205r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0206r_c0f.fits  u5ay0206r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0207r_c0f.fits  u5ay0207r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0208r_c0f.fits  u5ay0208r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay0209r_c0f.fits  u5ay0209r_c1f.fits
+/home/grinikolov/bin/dol/hstphot1.1/mask u5ay020ar_c0f.fits  u5ay020ar_c1f.fits
+
+
+echo Renaming the files
+mv u5ay0201r_c0f.fits n2214s2F555W350a.fits
+mv u5ay0202r_c0f.fits n2214s2F555W350b.fits
+mv u5ay0203r_c0f.fits n2214s2F555W10c.fits
+mv u5ay0204r_c0f.fits n2214s2F814W350d.fits
+mv u5ay0205r_c0f.fits n2214s2F814W350e.fits
+mv u5ay0206r_c0f.fits n2214s2F814W10f.fits
+mv u5ay0207r_c0f.fits n2214s2F555W350g.fits
+mv u5ay0208r_c0f.fits n2214s2F555W350h.fits
+mv u5ay0209r_c0f.fits n2214s2F814W350i.fits
+mv u5ay020ar_c0f.fits n2214s2F814W350j.fits
+
+
+echo Computing sky
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F555W350a
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F555W350b
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F555W10c
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F814W350d
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F814W350e
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F814W10f
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F555W350g
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F555W350h
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F814W350i
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F814W350j
+
+echo Removing Cosmic Rays
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F555W350a 0 0 0 0 0 n2214s2F555W350b 0 0 0 0 0 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F555W350a 0 0 0 0 0 n2214s2F555W350b 0 0 0 0 0 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F555W350a 0 0 0 0 0 n2214s2F555W350b 0 0 0 0 0
+ 
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F814W350d 0 0 0 0 0 n2214s2F814W350e 0 0 0 0 0
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F814W350d 0 0 0 0 0 n2214s2F814W350e 0 0 0 0 0
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F814W350d 0 0 0 0 0 n2214s2F814W350e 0 0 0 0 0
+
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F555W350g 0 0 0 0 0 n2214s2F555W350h 0 0 0 0 0
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F555W350g 0 0 0 0 0 n2214s2F555W350h 0 0 0 0 0
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F555W350g 0 0 0 0 0 n2214s2F555W350h 0 0 0 0 0
+
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F814W350i 0 0 0 0 0 n2214s2F814W350j 0 0 0 0 0
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F814W350i 0 0 0 0 0 n2214s2F814W350j 0 0 0 0 0
+/home/grinikolov/bin/dol/hstphot1.1/crmask 1 3 0  n2214s2F814W350i 0 0 0 0 0 n2214s2F814W350j 0 0 0 0 0
+
+
+echo Removing Hotpixels
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W350a
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W350b
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W10c
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W350d
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W350e
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W10f
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W350g
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W350h
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W350i
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W350j
+
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W350a
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W350b
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W10c
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W350d
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W350e
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W10f
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W350g
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F555W350h
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W350i
+/home/grinikolov/bin/dol/hstphot1.1/hotpixels n2214s2F814W350j
+
+echo Coadding registered images
+
+/home/grinikolov/bin/dol/hstphot1.1/coadd n2214s2F555W350a.fits n2214s2F555W350b.fits n2214s2F555W700ab_deep.fits
+/home/grinikolov/bin/dol/hstphot1.1/coadd n2214s2F814W350d.fits n2214s2F814W350e.fits n2214s2F814W700de_deep.fits
+/home/grinikolov/bin/dol/hstphot1.1/coadd n2214s2F555W350g.fits n2214s2F555W350h.fits n2214s2F555W700gh_deep.fits
+/home/grinikolov/bin/dol/hstphot1.1/coadd n2214s2F814W350i.fits n2214s2F814W350j.fits n2214s2F814W700ij_deep.fits
+
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F555W700ab_deep
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F814W700de_deep
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F555W700gh_deep
+/home/grinikolov/bin/dol/hstphot1.1/getsky n2214s2F814W700ij_deep
+
+
+#==================================================================
+#             RUNNING  HSTphot  - Refit sky (option 512)  and
+#				- Artificial stars (option 64)  [col1=V, col2=I, Vmin=14, Vmax=27, V-Imin=-1, V-Imax=3, weights (1=900 stars/CMDbin) total=(27-13)/0.5 * (2.25-(-0.5))/0.25 = 308 bins]
+#                               - weight 0.5 
+
+/home/grinikolov/bin/dol/hstphot1.1/hstphot ngc2214final.dat 3.5 5.0 -1 0 0 0 0 576 n2214s2F555W700ab_deep 0 0 n2214s2F555W10c 0 0 n2214s2F814W700de_deep 0 0 n2214s2F814W10f 0 0 n2214s2F555W700gh_deep 5 5 n2214s2F814W700ij_deep 5 5 n2214s2F555W700ab_deep  V I 13 27 -0.5 2.25  0.5 0.5 0.5 0.5 
+/home/grinikolov/bin/dol/hstphot1.1/distort ngc2214final.dat ngc2214final.coo 1
+
+# Adding line numbers as first column
+nl ngc2214final.coo > ngc2214final.coo.nl
+
+# Data quality for file with line numbers: $9 Type < 3; $4 Chi <2.5; $6 (-0.3< Sharpness <0.3); $10$20 Counts not 0.0; $13$23 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($4<=2.5) && ($6>=-0.3) && ($6<=0.3) && ($9<=3.) && ($10!=0.0) && ($20!=0.0) && ($13<=89.9) && ($23<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  $1, $2, $3, $13, $14, $23, $24, ($13-$23), (sqrt(($14*$14)+($24*$24)))}' ngc2214final.coo.nl > ngc2214final.pht
+
+# Fake Data quality and COMPLETENESS: $19 Type < 3; $14 Chi <2.5; $16 (-0.3< Sharpness <0.3); $20$30 Counts not 0.0; $23$33 Mag < 90.0  and COMPLETENESS (the same chip $1=$11; X,Y positions same within tolerance of 1 chip pixel  and V magnitude within 1 mag tolerance.
+awk 'BEGIN {FS=" "} {c=0;  if (($14<=2.5) && ($16>=-0.3) && ($16<=0.3) && ($19<=3.) && ($20!=0.0) && ($30!=0.0) && ($23<=89.9) && ($33<=89.9)  &&  ($1==$11) && ($12<=$2+1) && ($12>=$2-1) && ($23<=$6+1) && ($23>=$6-1))  {c=1}}   {print  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, c} ' ngc2214final.dat.fake > ngc2214final.coo.fake
+/home/grinikolov/bin/dol/hstphot1.1/distort ngc2214final.coo.fake ngc2214final.pht.fake 1
+
+echo HSTphot script finished! 
+#=============================================================
+

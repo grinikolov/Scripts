@@ -1,0 +1,139 @@
+
+
+echo The Reference frame is  u2xq0103t_c0f
+
+echo  u2xq0101t_c0f.fits  ngc1754F555W20a_u2xq0101t.fits
+echo  u2xq0102t_c0f.fits  ngc1754F555W20b_u2xq0102t.fits
+echo  u2xq0103t_c0f.fits  ngc1754F555W500c_u2xq0103t.fits
+echo  u2xq0104t_c0f.fits  ngc1754F555W500d_u2xq0104t.fits
+echo  u2xq0105t_c0f.fits  ngc1754F555W500e_u2xq0105t.fits
+echo  u2xq0106t_c0f.fits  ngc1754F814W20f_u2xq0106t.fits
+echo  u2xq010bt_c0f.fits  ngc1754F814W600g_u2xq010bt.fits
+echo  u2xq0107t_c0f.fits  ngc1754F814W20h_u2xq0107t.fits
+echo  u2xq0108t_c0f.fits  ngc1754F814W20i_u2xq0108t.fits
+echo  u2xq010at_c0f.fits  ngc1754F814W600k_u2xq010at.fits
+echo  u2xq0109t_c0f.fits  ngc1754F814W600j_u2xq0109t.fits
+
+
+echo Masking with Data Quality file
+
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0101t_c0f.fits  u2xq0101t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0102t_c0f.fits  u2xq0102t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0103t_c0f.fits  u2xq0103t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0104t_c0f.fits  u2xq0104t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0105t_c0f.fits  u2xq0105t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0106t_c0f.fits  u2xq0106t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0107t_c0f.fits  u2xq0107t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0108t_c0f.fits  u2xq0108t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq0109t_c0f.fits  u2xq0109t_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq010at_c0f.fits  u2xq010at_c1f.fits
+/home/maya/Grigor/work/hstphot1.1.7/mask u2xq010bt_c0f.fits  u2xq010bt_c1f.fits
+
+echo Renaming the files
+mv u2xq0101t_c0f.fits  ngc1754F555W20a_u2xq0101t.fits
+mv u2xq0102t_c0f.fits  ngc1754F555W20b_u2xq0102t.fits
+mv u2xq0103t_c0f.fits  ngc1754F555W500c_u2xq0103t.fits
+mv u2xq0104t_c0f.fits  ngc1754F555W500d_u2xq0104t.fits
+mv u2xq0105t_c0f.fits  ngc1754F555W500e_u2xq0105t.fits
+mv u2xq0106t_c0f.fits  ngc1754F814W20f_u2xq0106t.fits
+mv u2xq0107t_c0f.fits  ngc1754F814W20h_u2xq0107t.fits
+mv u2xq0108t_c0f.fits  ngc1754F814W20i_u2xq0108t.fits
+mv u2xq0109t_c0f.fits  ngc1754F814W600j_u2xq0109t.fits
+mv u2xq010at_c0f.fits  ngc1754F814W600k_u2xq010at.fits
+mv u2xq010bt_c0f.fits  ngc1754F814W600g_u2xq010bt.fits
+
+
+echo Computing Sky
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F555W20a_u2xq0101t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F555W20b_u2xq0102t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F555W500c_u2xq0103t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F555W500d_u2xq0104t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F555W500e_u2xq0105t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F814W20f_u2xq0106t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F814W20h_u2xq0107t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F814W20i_u2xq0108t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F814W600j_u2xq0109t
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F814W600k_u2xq010at
+/home/maya/Grigor/work/hstphot1.1.7/getsky  ngc1754F814W600g_u2xq010bt
+
+
+echo Removing Cosmic Rays
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F555W20a_u2xq0101t 0 0 0 0 0  ngc1754F555W20b_u2xq0102t 0 0 0 0 0  
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F555W20a_u2xq0101t 0 0 0 0 0  ngc1754F555W20b_u2xq0102t 0 0 0 0 0  
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F555W20a_u2xq0101t 0 0 0 0 0  ngc1754F555W20b_u2xq0102t 0 0 0 0 0  
+
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F555W500c_u2xq0103t 0 0 0 0 0 ngc1754F555W500d_u2xq0104t  0 0 0 0 0  ngc1754F555W500e_u2xq0105t 0 0 0 0 0
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F555W500c_u2xq0103t 0 0 0 0 0 ngc1754F555W500d_u2xq0104t  0 0 0 0 0  ngc1754F555W500e_u2xq0105t 0 0 0 0 0
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F555W500c_u2xq0103t 0 0 0 0 0 ngc1754F555W500d_u2xq0104t  0 0 0 0 0  ngc1754F555W500e_u2xq0105t 0 0 0 0 0
+
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F814W20f_u2xq0106t 0 0 0 0 0  ngc1754F814W20h_u2xq0107t 0 0 0 0 0 ngc1754F814W20i_u2xq0108t 0 0 0 0 0
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F814W20f_u2xq0106t 0 0 0 0 0  ngc1754F814W20h_u2xq0107t 0 0 0 0 0 ngc1754F814W20i_u2xq0108t 0 0 0 0 0
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F814W20f_u2xq0106t 0 0 0 0 0  ngc1754F814W20h_u2xq0107t 0 0 0 0 0 ngc1754F814W20i_u2xq0108t 0 0 0 0 0
+
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F814W600g_u2xq010bt 0 0 0 0 0  ngc1754F814W600j_u2xq0109t 0 0 0 0 0 ngc1754F814W600k_u2xq010at 0 0 0 0 0
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F814W600g_u2xq010bt 0 0 0 0 0  ngc1754F814W600j_u2xq0109t 0 0 0 0 0 ngc1754F814W600k_u2xq010at 0 0 0 0 0
+/home/maya/Grigor/work/hstphot1.1.7/crmask 1 3 0  ngc1754F814W600g_u2xq010bt 0 0 0 0 0  ngc1754F814W600j_u2xq0109t 0 0 0 0 0 ngc1754F814W600k_u2xq010at 0 0 0 0 0
+
+echo Removing Hotpixels
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W20a_u2xq0101t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W20b_u2xq0102t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W500c_u2xq0103t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W500d_u2xq0104t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W500e_u2xq0105t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W20f_u2xq0106t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W20h_u2xq0107t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W20i_u2xq0108t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W600j_u2xq0109t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W600k_u2xq010at
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W600g_u2xq010bt
+
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W20a_u2xq0101t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W20b_u2xq0102t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W500c_u2xq0103t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W500d_u2xq0104t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F555W500e_u2xq0105t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W20f_u2xq0106t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W20h_u2xq0107t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W20i_u2xq0108t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W600j_u2xq0109t
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W600k_u2xq010at
+/home/maya/Grigor/work/hstphot1.1.7/hotpixels ngc1754F814W600g_u2xq010bt
+
+
+echo Coadding registered images
+/home/maya/Grigor/work/hstphot1.1.7/coadd  ngc1754F555W20a_u2xq0101t.fits ngc1754F555W20b_u2xq0102t.fits ngc1754F555W40ab.fits
+/home/maya/Grigor/work/hstphot1.1.7/coadd  ngc1754F555W500c_u2xq0103t.fits ngc1754F555W500d_u2xq0104t.fits ngc1754F555W500e_u2xq0105t.fits ngc1754F555W1500cde.fits 
+/home/maya/Grigor/work/hstphot1.1.7/coadd  ngc1754F814W20f_u2xq0106t.fits ngc1754F814W20h_u2xq0107t.fits ngc1754F814W20i_u2xq0108t.fits ngc1754F814W60fhi.fits  
+/home/maya/Grigor/work/hstphot1.1.7/coadd  ngc1754F814W600j_u2xq0109t.fits ngc1754F814W600k_u2xq010at.fits ngc1754F814W600g_u2xq010bt.fits ngc1754F814W1800jkg.fits
+
+# Computing Sky
+/home/maya/Grigor/work/hstphot1.1.7/getsky ngc1754F555W40ab
+/home/maya/Grigor/work/hstphot1.1.7/getsky ngc1754F555W1500cde
+/home/maya/Grigor/work/hstphot1.1.7/getsky ngc1754F814W60fhi
+/home/maya/Grigor/work/hstphot1.1.7/getsky ngc1754F814W1800jkg
+
+
+#==================================================================
+#             RUNNING  HSTphot  - Refit sky (option 512)  and
+#				- Artificial stars (option 64)  [col1=V, col2=I, Vmin=14, Vmax=27, V-Imin=-1, V-Imax=3, weights (1=900 stars/CMDbin) total=(27-13)/0.5 * (2.25-(-0.5))/0.25 =300   bins]
+#                               - weight 0.5 
+
+/home/maya/Grigor/work/hstphot1.1.7/hstphot ngc1754re_sky_f0.5.dat 3.5 5.0 -1 0 0 0 0 576 ngc1754F555W1500cde 0 0 ngc1754F814W1800jkg 0 0 ngc1754F555W40ab 0 0 ngc1754F814W60fhi 0 0 ngc1754F555W1500cde  V I 13 27 -0.5 2.25  0.5 0.5 0.5 0.5 
+/home/maya/Grigor/work/hstphot1.1.7/distort ngc1754re_sky_f0.5.dat ngc1754re_sky_f0.5.coo 1
+
+
+# Data quality: $8 Type < 3; $3 Chi <2.5; $5 (-0.3< Sharpness <0.3); $9$19 Counts not 0.0; $12$22 Mag < 90.0
+awk 'BEGIN {FS=" "} {if (($3<=2.5) && ($5>=-0.3) && ($5<=0.3) && ($8<=3.) && ($9!=0.0) && ($19!=0.0) && ($12<=89.9) && ($22<=89.9))   printf "%6i %9.2f %9.2f %8.3f %7.3f %7.3f %7.3f %7.3f %7.3f\n",  i+++1, $1, $2, $12, $13, $22, $23, ($12-$22), (sqrt(($13*$13)+($23*$23)))}' ngc1754re_sky_f0.5.coo > ngc1754re_sky_f0.5.pht
+
+# Fake Data quality and COMPLETENESS: $19 Type < 3; $14 Chi <2.5; $16 (-0.3< Sharpness <0.3); $20$30 Counts not 0.0; $23$33 Mag < 90.0  and COMPLETENESS (the same chip $1=$11; X,Y positions same within tolerance of 1 chip pixel  and V magnitude within 1 mag tolerance.
+awk 'BEGIN {FS=" "} {c=0;  if (($14<=2.5) && ($16>=-0.3) && ($16<=0.3) && ($19<=3.) && ($20!=0.0) && ($30!=0.0) && ($23<=89.9) && ($33<=89.9)  &&  ($1==$11) && ($12<=$2+1) && ($12>=$2-1) && ($23<=$6+1) && ($23>=$6-1))  {c=1}}   {print  $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, c} ' ngc1754re_sky_f0.5.dat.fake > ngc1754re_sky_f0.5.coo
+/home/maya/Grigor/work/hstphot1.1.7/distort ngc1754re_sky_f0.5.coo ngc1754re_sky_f0.5.pht.fake 1
+
+
+
+
+
+
+
+
+
